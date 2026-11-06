@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: COSYSMO Estimation API
+  version: 1.0.0
+servers:
+  - url: https://softwarecost.org/tools/
+paths:
+  /cosysmo_ai:
+    get:
+      operationId: estimateCosysmo
+      summary: Estimate cost, schedule, and effort using the COSYSMO model
+      parameters:
+        - in: query
+          name: System_Requirements_Easy
+          schema: { type: number }
+        - in: query
+          name: System_Requirements_Nominal
+          schema: { type: number }
+        - in: query
+          name: System_Requirements_Difficult
+          schema: { type: number }
+        - in: query
+          name: Interfaces_Easy
+          schema: { type: number }
+        - in: query
+          name: Interfaces_Nominal
+          schema: { type: number }
+        - in: query
+          name: Interfaces_Difficult
+          schema: { type: number }
+        - in: query
+          name: Critical_Algorithms_Easy
+          schema: { type: number }
+        - in: query
+          name: Critical_Algorithms_Nominal
+          schema: { type: number }
+        - in: query
+          name: Critical_Algorithms_Difficult
+          schema: { type: number }
+        - in: query
+          name: Operational_Scenarios_Easy
+          schema: { type: number }
+        - in: query
+          name: Operational_Scenarios_Nominal
+          schema: { type: number }
+        - in: query
+          name: Operational_Scenarios_Difficult
+          schema: { type: number }
+        - in: query
+          name: system_labor_cost_per_PM
+          required: true
+          schema: { type: number }
+        - in: query
+          name: calculated
+          schema:
+            type: string
+            default: "True"
+
+        # Cost factors (categorical ratings)
+        - in: query
+          name: AI_Usage
+          schema: { type: string, enum: [Very_Low, Low, Nominal] }
+        - in: query
+          name: Requirements_Understanding
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Architecture_Understanding
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Level_of_Service_Requirements
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Migration_Complexity
+          schema: { type: string, enum: [Nominal, High, Very_High, Extra_High] }
+        - in: query
+          name: Technology_Risk
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Documentation
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Diversity_of_Installations_Platforms
+          schema: { type: string, enum: [Nominal, High, Very_High, Extra_High] }
+        - in: query
+          name: Recursive_Levels_in_Design
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Stakeholder_Team_Cohesion
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Personnel_Team_Capability
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Personnel_Experience_Continuity
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+        - in: query
+          name: Process_Capability
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High, Extra_High] }
+        - in: query
+          name: Multisite_Coordination
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High, Extra_High] }
+        - in: query
+          name: Tool_Support
+          schema: { type: string, enum: [Very_Low, Low, Nominal, High, Very_High] }
+
+      responses:
+        '200':
+          description: HTML with COSYSMO estimation results
+          content:
+            text/html:
+              schema:
+                type: string
