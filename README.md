@@ -5,6 +5,8 @@ Access the tutorial notebook with any of the following:
 - Open the Google Colab Notebook directly from here https://colab.research.google.com/drive/1iR-Dmjr80S7-h6MM5jJXx4D6PrwZyAyS?usp=sharing and "Save a copy in Drive".
 - Download the notebook from here https://github.com/madachy/sd_incose/blob/577caa15faa514d3d866e78ea47b7dd500a59be4/INCOSE_LA_SD_JTC_Tutorial_Customizing_AI_for_Systems_Engineering.ipynb and then upload it to Google Colab or another Jupyter Notebook application.
 
+- Further examples in this presentation https://github.com/madachy/sd_incose/blob/3d482855acd2326c823d3f2c6db3ee7c2ef987a8/INCOSE_LA_SD_JTC_2026___Embedding_Trustworthy_AI_into_Quantitative_Systems_Engineering_Tools.pdf
+
 
 
   
